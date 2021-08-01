@@ -15,16 +15,20 @@ dateTime <- strptime(paste(newData$Date, newData$Time), "%d/%m/%Y %H:%M:%S", tz 
 # Binding the column of date and Time data to the subsetted dataset
 newData <- cbind(newData, dateTime)
 
+# Viewing the column names and classes
 str(newData)
 
+# Opening the png file
 png("Plot2.png", 
     width = 480, 
     height = 480)
 
+# Plotting the line graph
 with(newData, plot(x = dateTime, 
                    y = Global_active_power, 
                    type = "l",
                    xlab = "",
                    ylab = "Global Active Power (Kilowatts)"))
 
+# Saving and closing the file
 dev.off()
